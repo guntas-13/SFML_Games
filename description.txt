@@ -1,0 +1,16 @@
+Window W H
+
+Font F S R G B
+-  Font File    F   std::string
+   Font Size    S   int
+   RGB Color    (R, G, B) int, int, int
+
+Rectangle N X Y SX SY R G B W H
+-  Shape Name       Name        std::string
+   Initial Position (X, Y)      float, float
+   Initial Speed    (SX, SY)    float, float
+   Color            (RGB)       int, int, int
+   Size             (W, H)      float, float
+
+Circle N X Y SX SY R G B R
+-  Radius           R       float
