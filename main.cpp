@@ -44,7 +44,7 @@ int main(int argc, char * argv[])
     // std::cout << cText.getCharacterSize() << "\n";
 
     sf::Text rText("CPink", myFont, 18);
-    rText.setPosition(initXr + rectW - (rText.getLocalBounds().width)/2.0, initYr + rectH - (float)(rText.getCharacterSize())/2.0);
+    rText.setPosition(initXr + rectW/2.0 - (rText.getLocalBounds().width)/2.0, initYr + rectH/2.0 - (float)(rText.getCharacterSize())/2.0);
 
     
     while (window.isOpen())
