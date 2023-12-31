@@ -11,6 +11,9 @@
     
     The objects has their own special attributes ->
     Sx (X Speed), Sy (Y Speed), Text.
+
+    1. Add your own description of the environment in the "config.txt" file.
+    2. Press "Up" to double the speed of objects and Press "Down" to half their speeds.
 */
 
 class MyCircle : public sf::CircleShape
@@ -47,6 +50,16 @@ public:
         
         setPosition(X, Y);
         cText.setPosition(X + R - cText.getLocalBounds().width/2.0, Y + R - (float)cText.getCharacterSize()/2.0);
+    }
+
+    void SpeedUp()
+    {
+        m_sX *= 2.0f; m_sY *= 2.0f;
+    }
+
+    void SpeedDown()
+    {
+        m_sX *= 0.5f; m_sY *= 0.5f;
     }
 
     sf::Text& getText()
@@ -90,6 +103,16 @@ public:
         
         setPosition(X, Y);
         rText.setPosition(X + W/2.0 - (rText.getLocalBounds().width)/2.0, Y + H/2.0 - (float)(rText.getCharacterSize())/2.0);
+    }
+
+    void SpeedUp()
+    {
+        m_sX *= 2.0f; m_sY *= 2.0f;
+    }
+
+    void SpeedDown()
+    {
+        m_sX *= 0.5f; m_sY *= 0.5f;
     }
 
     sf::Text& getText()
@@ -169,6 +192,22 @@ int main(int argc, char * argv[])
             if (event.type == sf::Event::KeyPressed)
             {
                 std::cout << "Key Pressed with code = " << event.key.code << "\n";
+            }
+
+            if (event.key.code == sf::Keyboard::Up)
+            {
+                for (auto& circle : cls)
+                    circle.SpeedUp();
+                for (auto& rectangle : rects)
+                    rectangle.SpeedUp();
+            }
+
+            if (event.key.code == sf::Keyboard::Down)
+            {
+                for (auto& circle : cls)
+                    circle.SpeedDown();
+                for (auto& rectangle : rects)
+                    rectangle.SpeedDown();
             }
         }
 
